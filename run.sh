@@ -13,7 +13,7 @@ do
     temperature=$(shuf -i 1-100 -n 1)
     data=$(echo {\"worker_id\": \"worker-$worker_id\", \"pool\": \"us\", \"hashrate\": $hashrate, \"temperature\": $temperature, \"timestamp\": $timestamp})
 
-    echo "inserting test data in two pools (us): $data"
+    echo "inserting test data in pool (us): $data"
     curl -d "$data" -H "Content-Type: application/json"  http://localhost:8000/report
 
     timestamp=$(date +%s)
@@ -22,7 +22,7 @@ do
     temperature=$(shuf -i 200-800 -n 1)
     data=$(echo {\"worker_id\": \"worker-$worker_id\", \"pool\": \"eu\", \"hashrate\": $hashrate, \"temperature\": $temperature, \"timestamp\": $timestamp})
 
-    echo "inserting test data in two pools (eu): $data"
+    echo "inserting test data in pool (eu): $data"
     curl -d "$data" -H "Content-Type: application/json"  http://localhost:8000/report
 
 done
