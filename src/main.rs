@@ -31,7 +31,7 @@ fn build_app_di() -> Arc<AppDI> {
     let connection = sqlite::open(":memory:").expect("Failed to open SQLite database");
     let query = "
         CREATE TABLE reports (worker_id TEXT, pool TEXT, hashrate REAL, temperature INTEGER, timestamp INTEGER);
-        CREATE INDEX 'idx_reports_timestamp' on reports(timestamp);
+        CREATE INDEX 'idx_reports_timestamp' on reports(timestamp desc);
     ";
 
     connection.execute(query).expect("Failed init sqlite");

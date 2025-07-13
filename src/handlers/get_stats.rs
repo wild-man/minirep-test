@@ -51,7 +51,7 @@ pub async fn http_handler(_req: HttpRequest, app: web::types::State<Arc<AppDI>>)
         avg(temperature) as avg_temp
 
     from reports
-    where timestamp > (current_timestamp - 300)
+    where timestamp > (unixepoch() - 10)
     group by pool";
 
     let statement = app.db.prepare(query);
