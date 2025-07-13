@@ -1,0 +1,14 @@
+[package]
+name = "miningrep"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+logs = "0.7.1"
+ntex = { version = "2.15.0", features = ["tokio"]}
+num_cpus = "1.17.0"
+serde = "1.0.219"
+serde_json = "1.0.140"
+sqlite = "0.37.0"
+thiserror = "2.0.12"
+tokio = "1.46.1"
